@@ -87,6 +87,13 @@ class _HomePageState extends State<HomePage> {
             return ListTile(
               key: Key(homeController.todoList[index]),
               title: Text(homeController.todoList[index]),
+              leading: Checkbox(
+                value: homeController.todoCompletedList[index],
+                onChanged: (value) {
+                  update();
+                  homeController.compleList(index);
+                },
+              ),
               trailing: IconButton(
                 onPressed: () {
                   update();
